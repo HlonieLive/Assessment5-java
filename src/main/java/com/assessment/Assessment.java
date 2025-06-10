@@ -20,8 +20,23 @@ public class Assessment {
      */
     public static List<Integer> generateFibonacciSequence(int n) {
         // TODO: Implement this method
-        return Collections.emptyList();
-
+        List<Integer> fibonacci = new ArrayList<>();
+        fibonacci.add(0);
+        if (n <= 0) {
+            return Collections.emptyList();
+        } else if (n == 1) {
+            return fibonacci;
+        } else {
+            fibonacci.add(1);
+            if (n == 2) {
+                return fibonacci;
+            }
+            for (int i = 3; i < n+1; i++) {
+                int next = fibonacci.getLast() + fibonacci.get(fibonacci.size() - 2);
+                fibonacci.add(next);
+            }
+        }
+        return fibonacci;
     }
 
     /**
